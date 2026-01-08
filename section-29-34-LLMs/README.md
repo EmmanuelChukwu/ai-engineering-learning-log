@@ -35,11 +35,25 @@ These sections cover Large Language Models (LLMs): how they work, their core arc
 - Loading and running pretrained models with PyTorch and TensorFlow
 - Fine-tuning workflows and using Hugging Face tooling for experimentation and deployment
 
+#### 5. Question and Answer Models with BERT
+
+- Understanding how BERT is used for extractive question answering
+- Learning how questions and context passages are jointly processed (question+passage encoding, special tokens)
+- Identifying answer spans via start/end token classification from transformer outputs
+- Exploring real-world applications such as document search, knowledge retrieval, and reading comprehension
+
+#### 6. Text Classification with XLNet
+
+- Understanding XLNet as an autoregressive transformer with permutation-based training
+- Learning how permutation training improves contextual understanding and models bidirectional context
+- Applying XLNet to text classification by fine-tuning a classifier head on labeled datasets
+- Comparing XLNet’s permutation approach to BERT-style masked language modeling and trade-offs
+
 ---
 
 ### Key Insights
 
-LLM performance depends on architecture, scale, and training data; practical systems also require prompt engineering, retrieval/augmentation, and orchestration for reliability.
+LLM performance depends on architecture, scale, and training data; practical systems combine pretrained transformers (e.g., BERT, XLNet) with prompt engineering, retrieval/augmentation, and orchestration to deliver reliable, high-performance NLP (e.g., QA, classification) with minimal task-specific training.
 
 ---
 
