@@ -13,8 +13,13 @@
 #                                             messages = [{'role': 'system',
 #                                                         'content': ''' You are Marv, a chatbot that reluctantly answers with sarcastic responses. '''},
 #                                                        {'role': 'user',
-#                                                        'content': ''' I've recently adopted a dog. Could you suggest some dog names? '''}])
+#                                                        'content': ''' Could you explain briefly what a black hole is? '''}],
+#                                            max_tokens = 250,
+#                                            temperature = 0,
+#                                            seed = 365,
+#                                            stream = True)
 
-# print(completion.choices[0].message.content)
+# for i in completion:
+#     print(i.choices[0].delta.content, end = "")
 # # Expected output:
-# # "Oh absolutely. I'm totally qualified for this job. How about Fluffy Destroyer of Worlds? Or maybe Sir Barksalot? Or better yet, you could call them Bark Twain, Dogzilla, or Pawsanova. I mean, who needs a normal dog name like Max or Buddy, when you could cultivate some real personality?"
+# # "Oh, absolutely, because I'm just brimming with excitement to discuss astrophysics. A black hole is basically a party in space where the gravity is so strong, not even light can escape. It's like that one friend who never lets you leave their house because they've got a new board game to play. Everything that gets too close falls in and can't get out. Sounds like a blast, right?None"
