@@ -1,0 +1,70 @@
+# LangChain Module: LangChain Expression Language (LCEL)
+
+## Overview
+This section covers the LangChain Expression Language (LCEL), a composable way to build LLM workflows by piping together prompts, models, and output parsers. LCEL treats these components as runnable units, making complex LLM pipelines easier to reason about, scale, and debug.
+
+---
+
+## Piping Prompts, Models, and Output Parsers
+LCEL allows prompts, models, and output parsers to be connected using a pipe (`|`) syntax. This creates a clear, linear data flow where the output of one component becomes the input of the next.
+
+This approach improves readability and reduces boilerplate when building LLM chains.
+
+---
+
+## Batching
+Batching enables multiple inputs to be processed in a single call. This improves efficiency and throughput, especially when working with large datasets or repeated prompt execution.
+
+---
+
+## Streaming
+Streaming allows tokens to be returned incrementally instead of waiting for the full response. This improves user experience in interactive applications and supports real-time feedback.
+
+---
+
+## Runnables and RunnableSequence
+In LCEL, prompts, models, and parsers are treated as **runnables**—objects that can be invoked, streamed, or batched.
+
+`RunnableSequence` represents a sequential chain of runnables connected using the pipe operator, forming the core structure of most LCEL workflows.
+
+---
+
+## Piping Chains and RunnablePassthrough
+`RunnablePassthrough` allows parts of the input to flow through a chain unchanged. This is useful when combining original inputs with model-generated outputs or when branching logic is required.
+
+---
+
+## Graphing Runnables
+LCEL supports visualizing runnable pipelines as graphs. This helps in understanding execution flow, debugging complex chains, and communicating system design.
+
+---
+
+## RunnableParallel
+`RunnableParallel` enables multiple runnables to execute in parallel on the same input. This is useful for:
+- Running multiple prompts simultaneously
+- Generating alternative outputs
+- Comparing model behaviors
+
+---
+
+## Piping RunnableParallel with Other Runnables
+Parallel outputs can be piped into subsequent runnables, allowing parallel computation followed by aggregation or transformation. This enables more advanced, multi-step workflows.
+
+---
+
+## RunnableLambda
+`RunnableLambda` allows custom Python functions to be inserted into LCEL pipelines. This makes it possible to add lightweight transformations, validations, or logic without breaking the runnable abstraction.
+
+---
+
+## The @chain Decorator
+The `@chain` decorator provides a clean way to define reusable LCEL chains as Python functions. It improves readability and allows complex pipelines to be encapsulated and reused across applications.
+
+---
+
+## Key Takeaways
+- LCEL introduces a composable, pipeline-based approach to LLM workflows
+- Runnables unify prompts, models, and parsers under a single abstraction
+- Batching and streaming improve performance and user experience
+- Parallel and lambda runnables enable advanced, scalable LLM systems
+- LCEL significantly reduces boilerplate while increasing clarity
