@@ -1,0 +1,82 @@
+# LangChain Module: Retrieval Augmented Generation (RAG)
+
+## Overview
+This section covers Retrieval Augmented Generation (RAG), a technique that enhances large language models by allowing them to retrieve and reason over external documents. Instead of relying solely on model parameters, RAG pipelines ground responses in relevant, retrieved context.
+
+---
+
+## Introduction to RAG
+Retrieval Augmented Generation combines:
+- Document retrieval from an external knowledge base
+- Language model generation using retrieved context
+
+This approach improves factual accuracy, reduces hallucinations, and enables LLMs to work with up-to-date or private data.
+
+---
+
+## Document Loading and Splitting
+Before retrieval, documents must be loaded and split into manageable chunks.
+
+### Document Loading
+- **PyPDFLoader**: Used to load and extract text from PDF documents
+- **Docx2txtLoader**: Used to load text from Word documents
+
+---
+
+### Document Splitting
+- **Character Text Splitter**: Splits text based on character length
+- **Markdown Header Text Splitter**: Splits documents by logical markdown sections
+
+Proper splitting improves embedding quality and retrieval accuracy.
+
+---
+
+## Document Embedding
+Text chunks are converted into vector representations using OpenAI embeddings. These embeddings capture semantic meaning, allowing similarity-based retrieval.
+
+---
+
+## Vector Storage and Indexing
+Embeddings are stored in a vector database for efficient retrieval.
+
+### Chroma Vectorstore
+- Used to store embedded document chunks
+- Supports similarity search and metadata inspection
+- Allows managing, inspecting, and querying stored documents
+
+---
+
+## Retrieval Strategies
+
+### Similarity Search
+Retrieves document chunks that are most similar to the query based on vector distance.
+
+### Maximal Marginal Relevance (MMR)
+Balances relevance and diversity by selecting chunks that are both relevant and non-redundant.
+
+### Vectorstore-backed Retriever
+Provides a higher-level abstraction for querying the vectorstore and retrieving relevant documents.
+
+---
+
+## Generation
+
+### Stuffing Documents
+Retrieved document chunks are injected directly into the prompt context before generation.
+
+### Generating a Response
+The language model uses the retrieved context to generate grounded, knowledge-aware responses.
+
+---
+
+## Bonus: Stuffing and Document Refinement
+Document refinement improves generation quality by iteratively updating or summarizing retrieved content before final response generation.
+
+---
+
+## Key Takeaways
+- RAG enables LLMs to work with external knowledge sources
+- Proper document loading and splitting are critical
+- Embeddings and vectorstores form the backbone of retrieval
+- Retrieval strategies significantly impact output quality
+- RAG is essential for building production-ready, knowledge-grounded LLM systems
